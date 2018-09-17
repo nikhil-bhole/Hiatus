@@ -1,0 +1,166 @@
+<html>
+<title>Create new entry</title>
+<head>
+    <link rel="stylesheet" href="stylesheet/angular-material.min.css">
+    <link rel="stylesheet" href="stylesheet/create-new-entry.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-animate.min.js"></script>
+    <script src="angular/angular-aria.min.js"></script>
+    <script src="angular/angular-material.min.js"></script>
+    <script src="angular/angular-messages.min.js"></script>
+    <script src="js/create-new-entry.js"></script>
+    
+</head>
+
+<body ng-app="MyApp" ng-controller="DemoCtrl">
+     
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleSidenav()" class="md-icon-button" aria-label="Settings" ng-disabled="false"> 
+                <i class="material-icons">menu</i> </md-button>
+                    <h2 flex md-truncate>Hiatus</h2>
+            <md-button class="md-icon-button" aria-label="Logout">
+                <i class="material-icons">&#xE8AC;</i>
+                    <md-tooltip md-direction="down">Logout</md-tooltip>
+             </md-button>
+        </div>
+    </md-toolbar>
+    
+    <section layout="row" flex>
+         <md-sidenav class="md-sidenav-left" md-component-id="closeEventsDisabled" md-whiteframe="4" md-disable-close-events> 
+            <md-toolbar class="md-hue-2">
+                <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+            <md-content layout-margin>
+                   <md-button ng-click="" class="md-accent">Profile</md-button>
+                   <md-button ng-click="" class="md-accent">Performance</md-button>
+                   <md-button ng-click="" class="md-accent">Study Material</md-button>
+                  </md-content>
+        </md-sidenav>
+    </section>
+
+  <div layout="column" class="main" layout-align="center center">  
+    <form id="ur" method="post" th:object="${record}" th:action="@{/saverecord}">
+    <div class="container" layout="column">
+    <div layout-gt-sm="row">
+        <h1 class="md-display-1">Create new record</h1>
+    </div>   
+    <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="25">
+                <label>UIDAI Number</label>
+                <md-icon class="material-icons"><i class="material-icons">person</i></md-icon>
+                <input name="adhaarNumber" ng-model="user.uidai" required ng-pattern="/^[0-9]{12}$/" md-maxlength="12">
+            </md-input-container> 
+    </div> 
+      
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="20">
+              <label>Title</label>
+                 <md-select name="title" ng-model="title" required>
+                     <md-option value="1" ng-value="1">Mr.</md-option>
+                     <md-option value="2" ng-value="2">Mrs.</md-option>
+                     <md-option value="3" ng-value="3">Ms.</md-option>
+                 </md-select>
+         </md-input-container>   
+         <md-input-container class="md-block" flex-gt-sm>
+              <label>Firstname</label>
+              <input name="firstname" ng-model="user.firstname" required>
+          </md-input-container>
+          
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>Middlename</label>
+             <input  name="middlename" ng-model="user.middlename">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>Lastname</label>
+              <input name="lastname" ng-model="user.lastname" required>
+          </md-input-container>
+          </div>
+          <!---->
+          <div layout-gt-sm="row">
+             <md-input-container class="md-block" flex-gt-sm="33">
+                  <label>Contact</label>
+                  <input name="contact" ng-model="user.contact" required>
+              </md-input-container>
+              
+              <md-input-container class="md-block" flex-gt-sm="33">
+                  <label>Alternate contact</label>
+                  <input name="alternateContact" ng-model="user.alternateContact">
+              </md-input-container>
+    
+              <md-input-container class="md-block" flex-gt-sm="33">
+                  <label>Email</label>
+                  <input name="email" ng-model="user.email">
+              </md-input-container>
+              </div>
+      <!---->
+        
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>Gender</label>
+              <md-select name="gender" ng-model="gender" required>
+                  <md-option value="1" ng-value="1">Male</md-option>
+                  <md-option value="2" ng-value="2">Female</md-option>
+                  <md-option value="3" ng-value="3">Other</md-option>
+              </md-select>
+          </md-input-container>  
+        
+       <!--   <md-input-container class="md-block" flex>
+              <label>Birthdate</label>
+              <md-datepicker  id="myDatePicker" ng-model="myDate" required></md-datepicker>
+           </md-input-container>
+      </div>-->
+      
+      <!---->
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex>
+              <label>Address</label>
+              <md-icon class="material-icons"><i class="material-icons">home</i></md-icon>
+              <input name="address" ng-model="user.address">
+          </md-input-container>
+      </div>
+      
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>State</label>
+              <md-select name="state" ng-model="state" required>
+                  <md-option value="1" ng-value="1">Maharashtra</md-option>
+                  <md-option value="2" ng-value="2">Gujarat</md-option>
+                  <md-option value="3" ng-value="3">Madhya Pradesh</md-option>
+              </md-select>
+          </md-input-container>
+          
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>City</label>
+            <input name="city" ng-model="user.city">
+          </md-input-container>
+
+          
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="user.postalCode"
+                    ng-pattern="/^[0-9]{6}$/" md-maxlength="6">
+
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+             <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <!---->
+        <div layout-gt-sm="row">
+            <md-button type="submit" class="md-raised md-primary">Save record</md-button>
+        </div>
+    </div> 
+    </form>    
+</div><!--Container Div Ends-->
+</body>
+</html>

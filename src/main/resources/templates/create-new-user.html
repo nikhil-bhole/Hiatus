@@ -1,0 +1,141 @@
+<html>
+<title>Create new entry</title>
+<head>
+    <link rel="stylesheet" href="stylesheet/angular-material.min.css">
+    <link rel="stylesheet" href="stylesheet/create-new-entry.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-animate.min.js"></script>
+    <script src="angular/angular-aria.min.js"></script>
+    <script src="angular/angular-material.min.js"></script>
+    <script src="angular/angular-messages.min.js"></script>
+    <script src="js/create-new-user.js"></script>
+    
+</head>
+
+<body ng-app="MyApp" ng-controller="DemoCtrl">
+  <div class="main">  
+    <div class="container">
+    <div layout-gt-sm="row">
+        <h1 class="md-display-1">Create new user</h1>
+    </div>   
+    <form id="ur" method="post" th:object="${user}" th:action="@{/saveuser}">
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="25">
+                <label>UIDAI Number</label>
+                <md-icon class="material-icons"><i class="material-icons">person</i></md-icon>
+                <input name="adhaar" ng-model="user.adhaar"  ng-pattern="/^[0-9]{12}$/" md-maxlength="12">
+            </md-input-container> 
+
+            <md-input-container class="md-block" flex-gt-sm="25">
+                <label>Pick role</label>
+                <md-select name="state" ng-model="user.role" required>
+                    <md-option value="ADMIN" ng-value="ADMIN">Administrator</md-option>
+                    <md-option value="RECEPTIONIST" ng-value="RECEPTIONIST">Receptionist</md-option>
+                    <md-option value="GUEST" ng-value="GUEST">Guest</md-option>
+                </md-select>
+            </md-input-container>
+
+        </div> 
+      
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="10">
+              <label>Title</label>
+                 <md-select name="title" ng-model="title" required>
+                     <md-option value="1" ng-value="1">Mr.</md-option>
+                     <md-option value="2" ng-value="2">Mrs.</md-option>
+                     <md-option value="3" ng-value="3">Ms.</md-option>
+                 </md-select>
+         </md-input-container>   
+         <md-input-container class="md-block" flex-gt-sm>
+              <label>Firstname</label>
+              <input name="firstname" ng-model="user.firstname" >
+          </md-input-container>
+          
+          
+
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>Lastname</label>
+              <input name="lastname" ng-model="user.lastname" >
+          </md-input-container>
+          </div>
+          <!---->
+          <div layout-gt-sm="row">
+             <md-input-container class="md-block" flex-gt-sm="33">
+                  <label>Contact</label>
+                  <input name="contact" ng-model="user.contact" >
+              </md-input-container>
+              
+              <md-input-container class="md-block" flex-gt-sm="33">
+                  <label>Email</label>
+                  <input name="email" ng-model="user.email">
+              </md-input-container>
+        </div>
+      <!---->
+        
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="33">
+             <label>Pick a username</label>
+             <input name="username" ng-model="user.username" >
+         </md-input-container>
+         
+         <md-input-container class="md-block" flex-gt-sm="33">
+             <label>Password</label>
+             <input name="password" ng-model="user.password">
+         </md-input-container>
+
+         <md-input-container class="md-block" flex-gt-sm="33">
+            <label>Confirm Password</label>
+            <input name="confirmPassword" ng-model="user.confirmPassword">
+        </md-input-container>
+   </div>
+      
+      <!---->
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex>
+              <label>Address</label>
+              <md-icon class="material-icons"><i class="material-icons">home</i></md-icon>
+              <input name="address" ng-model="user.address">
+          </md-input-container>
+      </div>
+      
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>City</label>
+            <input name="city" ng-model="user.city">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+              <label>State</label>
+              <md-select name="state" ng-model="state" required>
+                  <md-option value="1" ng-value="1">Maharashtra</md-option>
+                  <md-option value="2" ng-value="2">Gujarat</md-option>
+                  <md-option value="3" ng-value="3">Madhya Pradesh</md-option>
+              </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="user.postalCode" placeholder="12345"
+                    ng-pattern="/^[0-9]{6}$/" md-maxlength="6">
+
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">You must supply a postal code.</div>
+              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+        <!---->
+        <div layout-gt-sm="row">
+            <md-button type="submit" class="md-raised md-primary">Save User</md-button>
+        </div>
+    </div> 
+</form>    
+</div><!--Container Div Ends-->
+</body>
+</html>

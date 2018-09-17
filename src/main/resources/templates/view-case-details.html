@@ -1,0 +1,102 @@
+<html>
+<title>view-record</title>
+<head>
+    <link rel="stylesheet" href="stylesheet/angular-material.min.css">
+    <link rel="stylesheet" href="stylesheet/view-record.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-animate.min.js"></script>
+    <script src="angular/angular-aria.min.js"></script>
+    <script src="angular/angular-material.min.js"></script>
+    <script src="angular/angular-messages.min.js"></script>
+    <script src="js/view-record.js"></script>
+    
+</head>
+
+<body ng-app="MyApp" ng-controller="DemoCtrl" >
+    
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="toggleSidenav()" class="md-icon-button" aria-label="Settings" ng-disabled="false"> 
+                <i class="material-icons">menu</i> </md-button>
+                    <h2 flex md-truncate>Hiatus</h2>
+                   <md-button class="md-icon-button" aria-label="Logout">
+                <i class="material-icons">&#xE8AC;</i>
+                    <md-tooltip md-direction="down">Logout</md-tooltip>
+             </md-button>
+        </div>
+    </md-toolbar>
+    
+    <section layout="row" flex>
+         <md-sidenav class="md-sidenav-left" md-component-id="closeEventsDisabled" md-whiteframe="4" md-disable-close-events> 
+            <md-toolbar class="md-hue-2">
+                <h1 class="md-toolbar-tools">Menu</h1>
+            </md-toolbar>
+            <md-content layout-margin>
+                <a href="Dashboard.html">Dashboard</a>
+                   <md-button ng-click="" class="md-accent">Search Record</md-button>
+                   <md-button ng-click="" class="md-accent">Study Material</md-button>
+                  </md-content>
+        </md-sidenav>
+    </section>
+    
+    <div layout="row" layout-wrap ng-cloak class="md-inline-form">
+        <div class="leftnav" flex="20">
+                <ul >
+                        <li><md-button ng-click="page='first'" md-no-ink class="md-primary">General Info.</md-button></li>
+                        <li><md-button ng-click="page='second'" md-no-ink class="md-primary">Consultations</md-button></li>
+                        <li><md-button md-no-ink class="md-primary">Payments</md-button></li>
+                        <li><md-button md-no-ink class="md-primary">Appointments</md-button></li>
+                        <li><md-button md-no-ink class="md-primary">Print case reports</md-button></li>
+                        <li><md-button md-no-ink class="md-primary">Settings</md-button></li>
+                </ul> 
+        </div>
+        
+        <div class="general-info" flex="80" ng-show="page === 'first'" ng-init="page='first'">
+            <div>
+                <md-card>
+                        <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-subhead" style="color: brown">HC5000</span>
+                            <span style="font-size: 50px" >Manish Arun Bauskar</span>
+                            <span class="md-subhead"><b>Date of registration: </b> 22-12-22</span>
+                            <span class="md-subhead">25,Male</span>
+                            <span class="md-subhead">Block No-08, Shubham apt. Sahakar nagar, Bhusawal, Maharashtra-425201</span>
+                            <span class="md-subhead"><b>Contact:</b> 9096615635 <b>Email:</b> manish.bauskar@gmail.com</span>
+                            <span class="md-subhead"><b>Treated for: </b>Viral Infection</span>
+                        </md-card-title-text>
+                        <md-card-title-media>
+                            <div class="md-media-lg card-media"></div>
+                        </md-card-title-media>
+                        </md-card-title>
+                        <md-card-content>
+                                <md-button class="md-raised md-primary" ng-click="showAdvanced($event)" >New Consultation</md-button>
+                        </md-card-content>
+                    </md-card>
+            </div>
+            
+            <div>
+                    <md-card>
+                            <md-card-title>
+                            <md-card-title-text>
+                            <span style="font-size: 20px; color:blueviolet">Last visit details</span>
+                            </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content>
+                                <p>Visit Date: 20-01-2018 [ <i>Viral Infection </i>]<p>
+                            </md-card-content>
+                        </md-card>
+                </div> 
+        </div>
+
+        <div class="general-info" flex="80" ng-show="page === 'second'">
+            <p>Visit history</p>
+        <div flex>    
+               
+         </div>
+       
+      </div>
+    
+</body>
+</html>

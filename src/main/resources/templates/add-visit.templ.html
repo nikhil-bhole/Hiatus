@@ -1,0 +1,216 @@
+<html>
+        <head>
+                <style>
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                
+                th, td {
+                    text-align: left;
+                    padding: 8px;
+                }
+                
+                tr:nth-child(even){background-color: #f2f2f2}
+                
+                th {
+                    background-color: #172B4D;
+                    color: white;
+                }
+                </style>
+                </head>
+<body>
+<md-dialog aria-label="Mango (Fruit)">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add Consultation</h2>
+                    <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <i class="material-icons" aria-label="close">close</i> </md-button>
+                        </md-button>
+            </div>
+        </md-toolbar>
+        
+        <md-dialog-content style="width:1000px;height:810px; ">
+            <md-tabs md-dynamic-height md-border-bottom>
+                
+                    <md-tab label="Observations and diagnosis">
+                        <md-content class="md-padding">
+                                <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+                                        <md-input-container>
+                                                <label>Enter visit date</label>
+                                                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+                                        </md-input-container>
+                                
+
+                                        <md-input-container class="md-block">
+                                                <label>Complaints</label>
+                                                <input ng-required ng-model="user.address">
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block">
+                                                <label>Observations</label>
+                                                <input ng-model="user.address">
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block">
+                                                <label>Diagnosis</label>
+                                                <input ng-model="user.address">
+                                        </md-input-container>
+                                </md-content>
+                    </md-tab>
+                    
+                    <md-tab label="Medications">
+                        <md-content class="md-padding">
+                                <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+                                        <div>
+                                           <form ng-submit="$event.preventDefault()">
+                                                           <md-autocomplete
+                                                                id="custom-template"
+                                                                ng-disabled="ctrl.isDisabled"
+                                                                md-no-cache="ctrl.noCache"
+                                                                md-selected-item="ctrl.selectedItem"
+                                                                md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                                                md-search-text="ctrl.searchText"
+                                                                md-selected-item-change="ctrl.selectedItemChange(item)"
+                                                                md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                                                md-item-text="item.name"
+                                                                md-min-length="0"
+                                                                placeholder="Pick a DRUG"
+                                                                md-menu-class="autocomplete-custom-template"
+                                                                md-menu-container-class="custom-container">
+                                                              <md-item-template>
+                                                                <span class="item-title">
+                                                                  <md-icon md-svg-icon="img/icons/octicon-repo.svg"></md-icon>
+                                                                  <span> {{item.name}} </span>
+                                                                </span>
+                                                                <span class="item-metadata">
+                                                                  <span>
+                                                                    <strong>{{item.watchers}}</strong> watchers
+                                                                  </span>
+                                                                  <span>
+                                                                    <strong>{{item.forks}}</strong> forks
+                                                                  </span>
+                                                                </span>
+                                                              </md-item-template>
+                                                            </md-autocomplete>
+                                                </form>
+                                            
+
+                                                <div layout="row">
+                                                        <md-input-container>
+                                                                <label>Units</label>
+                                                                <md-select ng-model="ctrl.userState">
+                                                                  <md-option><em>None</em></md-option>
+                                                                  <md-option ng-repeat="state in ctrl.states" ng-value="state.abbrev" ng-disabled="$index === 1">
+                                                                    {{state.abbrev}}
+                                                                  </md-option>
+                                                                </md-select>
+                                                              </md-input-container> 
+                                                              
+                                                              <md-input-container>
+                                                                    <label>Frequency</label>
+                                                                    <md-select ng-model="ctrl.userState">
+                                                                      <md-option><em>None</em></md-option>
+                                                                      <md-option ng-repeat="state in ctrl.states" ng-value="state.abbrev" ng-disabled="$index === 1">
+                                                                        {{state.abbrev}}
+                                                                      </md-option>
+                                                                    </md-select>
+                                                             </md-input-container> 
+
+                                                             <md-input-container>
+                                                                    <label>Duration</label>
+                                                                    <input>
+                                                                  </md-input-container>
+                                                             
+                                                            <md-input-container>
+                                                                    <label>Units</label>
+                                                                    <md-select ng-model="ctrl.userState">
+                                                                      <md-option><em>None</em></md-option>
+                                                                      <md-option ng-repeat="state in ctrl.states" ng-value="state.abbrev" ng-disabled="$index === 1">
+                                                                        {{state.abbrev}}
+                                                                      </md-option>
+                                                                    </md-select>
+                                                             </md-input-container> 
+                                                  
+                                                
+                                                        <md-input-container>
+                                                          <label>Total Quantity</label>
+                                                          <input>
+                                                        </md-input-container>
+                                                        
+                                                          
+                                                        <md-input-container>
+                                                                <label>Units</label>
+                                                                <md-select ng-model="ctrl.userState">
+                                                                  <md-option><em>None</em></md-option>
+                                                                  <md-option ng-repeat="state in ctrl.states" ng-value="state.abbrev" ng-disabled="$index === 1">
+                                                                    {{state.abbrev}}
+                                                                  </md-option>
+                                                                </md-select>
+                                                         </md-input-container> 
+                                                        
+                                                         <md-button class="md-fab md-mini md-primary" aria-label="Use Android">
+                                                                <i class="material-icons">
+                                                                        add
+                                                                        </i>
+                                                              </md-button>
+                                                      </div>
+                                        </div>
+                                </md-content>
+                                <div>
+                                        <table class="table1">
+                                                <tr>
+                                                  <th>Drug</th>
+                                                  <th>Units</th>
+                                                  <th>Frequency</th>
+                                                  <th>Duration</th>
+                                                  <th>Units</th>
+                                                  <th>Quantity</th>
+                                                  <th>Units</th>
+                                                  <th>Edit</th>
+                                                  <th>Edit</th>
+                                                </tr>
+                                                <tr>
+                                                  <td>Peter</td>
+                                                  <td>Griffin</td>
+                                                  <td>$100</td>
+                                                  <td>$100</td>
+                                                  <td>$100</td>
+                                                  <td>$100</td>
+                                                  <td>$100</td>
+                                                  <td><i class="material-icons" ng-click="">create</i></td>
+                                                  <td><i class="material-icons">delete_sweep</i></td>
+                                                </tr>
+                                              
+                                              </table>
+                                </div>
+                        </md-content>
+                    </md-tab>
+                    
+                    <md-tab label="Cousnulations">
+                            
+                    </md-tab>
+                    
+                    <md-tab label="Charge">
+                                
+                    </md-tab>
+            
+            </md-tabs>
+        </md-dialog-content>
+              
+        <md-dialog-actions layout="row">
+            <span flex></span>
+                <md-button ng-click="answer('not useful')" >
+                      Discard
+                </md-button>
+                <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+                      Save
+                </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+              
+    </body>
+      </html>

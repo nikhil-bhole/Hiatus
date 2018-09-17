@@ -1,0 +1,46 @@
+<html>
+<title>Hiatus Dashboard</title>
+<head>
+    <link rel="stylesheet" href="stylesheet/angular-material.min.css">
+    <link rel="stylesheet" href="stylesheet/dashboard.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-animate.min.js"></script>
+    <script src="angular/angular-aria.min.js"></script>
+    <script src="angular/angular-material.min.js"></script>
+    <script src="angular/angular-messages.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+</head>
+
+<body ng-app="MyApp" ng-controller="AppCtrl">
+        
+        <md-toolbar class="md-hue-2">
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="toggleSidenav()" class="md-icon-button" aria-label="Settings" ng-disabled="false"> 
+                        <i class="material-icons">menu</i> </md-button>
+                            <h2 flex md-truncate>Hiatus</h2>
+                           <md-button class="md-icon-button" aria-label="Logout">
+                        <i class="material-icons">&#xE8AC;</i>
+                            <md-tooltip md-direction="down">Logout</md-tooltip>
+                     </md-button>
+                </div>
+            </md-toolbar>
+
+            <section layout="row" flex>
+                    <md-sidenav class="md-sidenav-left" md-component-id="closeEventsDisabled" md-whiteframe="4" md-disable-close-events> 
+                       <md-toolbar class="md-hue-2">
+                           <h1 class="md-toolbar-tools">Menu</h1>
+                       </md-toolbar>
+                       <md-content layout-margin>
+                           <a href="Dashboard.html">Dashboard</a>
+                           <a href="create-new-record.html">Create new record</a>
+                             
+                           </md-content>
+                   </md-sidenav>
+            </section>
+        
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<html>
+<title>Hiatus login</title>
+<head>
+    <link rel="stylesheet" href="stylesheet/angular-material.min.css">
+    <link rel="stylesheet" href="stylesheet/login.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular-animate.min.js"></script>
+    <script src="angular/angular-aria.min.js"></script>
+    <script src="angular/angular-material.min.js"></script>
+    <script src="angular/angular-messages.min.js"></script>
+    <script src="js/login.js"></script>
+</head>
+
+<body ng-app="MyApp">
+        <div layout="row" layout-align="center center">
+                <p class="pars"><i>Welcome to Hiatus: version 1.0</i></p>
+        </div>
+        
+        <div controller = "loginCtrl" class="centered">
+                <form method="POST">
+                        <div layout="row" layout-align="center center">
+                                <p class="heading">Sign In</p>
+                        </div>
+                        <div layout="row" layout-align="center center">
+                                <p>to continue to Hiatus</p>
+                        </div>     
+                        <div layout-gt-sm="row"  layout-align="center center">
+                                <md-input-container class="md-block" flex-gt-sm="50">
+                                <label>Username</label>
+                                <input ng-model="user.username" required>
+                                </md-input-container> 
+                        </div>  
+                        <div layout-gt-sm="row" layout-align="center center">   
+                        <md-input-container class="md-block" flex-gt-sm="50">
+                                <label>Password</label>
+                                <input ng-model="user.password" type="password" required>
+                        </md-input-container> 
+                        </div> 
+                        <div layout="row" layout-align="center center">
+                                <md-button type="submit" class="md-raised md-primary">Sign In</md-button>
+                        </div>
+                </form>
+                        <div layout="row" layout-align="center center">
+                                <md-button  class="md-primary" ng-href="{{googleUrl}}" target="_blank">Forget Password?</md-button>
+                        </div>
+        </div>
+  
+        <div class="footer">
+                <p class="pars">&#169 Milky way systems 2018</p>
+        </div>
+</body>
+
+</html>
